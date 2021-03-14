@@ -16,7 +16,7 @@ function Post(props) {
             </div>
             <div className={css.content}>
                 <div className={css.imageFrame}>
-                    <img src={publicUrl(props.post.photo)} />
+                    <img src={publicUrl(props.post.photo)} alt="pic" />
                 </div>
                 <div className={css.interactions}>
                     <div className={css.buttons}>
