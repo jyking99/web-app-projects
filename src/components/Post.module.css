@@ -1,0 +1,63 @@
+.post {
+    
+}
+
+.head {
+    padding: 0.3em 0.5em;
+    display: flex;
+}
+
+.head img {
+    border-radius: 100%;
+    width: 2.2em;
+    height: 2.2em;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.head p {
+    margin-left: 0.7em;
+}
+
+.content {
+
+}
+
+.imageFrame {
+    width: 100%;
+}
+
+.imageFrame img {
+    width: 100%;
+}
+
+.interactions {
+    margin-left: 1em;
+}
+
+.buttons {
+
+}
+
+.buttons button {
+    margin-right: 0.5em;
+}
+
+.likes {
+
+}
+
+.likes p {
+    margin: 0.3em 0em;
+}
+
+.comments {
+
+}
+
+.ago {
+    margin-top: 0.5em;
+    text-transform: uppercase;
+    font-size: 0.8em;
+    color: grey;
+}
