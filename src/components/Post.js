@@ -4,8 +4,8 @@ import Comments from './Comments.js';
 
 import css from './Post.module.css';
 
-import publicUrl from '../utils/publicUrl.js';
-import timespan from '../utils/timespan.js';
+import publicUrl from 'utils/publicUrl.js';
+import timespan from 'utils/timespan.js';
 
 function Post(props) {
     return (
@@ -16,7 +16,7 @@ function Post(props) {
             </div>
             <div className={css.content}>
                 <div className={css.imageFrame}>
-                    <img src={props.post.photo} />
+                    <img src={publicUrl(props.post.photo)} />
                 </div>
                 <div className={css.interactions}>
                     <div className={css.buttons}>

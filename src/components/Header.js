@@ -1,12 +1,13 @@
 import React from 'react';
 
 import css from './Header.module.css';
-import publicUrl from '../utils/publicUrl';
+
+import publicUrl from 'utils/publicUrl';
 
 function Header() {
-  return (
-    <div className={css.header}>
-      <div className={css.headerItem}>
+    return (
+        <div className={css.header}>
+            <div className={css.headerItem}>
                 <button>
                     <img src={publicUrl('/assets/camera.svg')} alt="Home" />
                 </button>
@@ -21,8 +22,8 @@ function Header() {
                     <img src={publicUrl('/assets/message.svg')} alt="Home" />
                 </button>
             </div>
-    </div>
-  );
+        </div>
+    );
 }
 
 export default Header;
