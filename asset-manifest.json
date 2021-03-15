@@ -1,22 +1,22 @@
 {
   "files": {
-    "main.css": "/jyking99/SocialMediaHW/static/css/main.ed238e33.chunk.css",
-    "main.js": "/jyking99/SocialMediaHW/static/js/main.91d81c2c.chunk.js",
-    "main.js.map": "/jyking99/SocialMediaHW/static/js/main.91d81c2c.chunk.js.map",
-    "runtime-main.js": "/jyking99/SocialMediaHW/static/js/runtime-main.b01edd2f.js",
-    "runtime-main.js.map": "/jyking99/SocialMediaHW/static/js/runtime-main.b01edd2f.js.map",
-    "static/js/2.aaddea28.chunk.js": "/jyking99/SocialMediaHW/static/js/2.aaddea28.chunk.js",
-    "static/js/2.aaddea28.chunk.js.map": "/jyking99/SocialMediaHW/static/js/2.aaddea28.chunk.js.map",
-    "static/js/3.f05b0e46.chunk.js": "/jyking99/SocialMediaHW/static/js/3.f05b0e46.chunk.js",
-    "static/js/3.f05b0e46.chunk.js.map": "/jyking99/SocialMediaHW/static/js/3.f05b0e46.chunk.js.map",
-    "index.html": "/jyking99/SocialMediaHW/index.html",
-    "static/css/main.ed238e33.chunk.css.map": "/jyking99/SocialMediaHW/static/css/main.ed238e33.chunk.css.map",
-    "static/js/2.aaddea28.chunk.js.LICENSE.txt": "/jyking99/SocialMediaHW/static/js/2.aaddea28.chunk.js.LICENSE.txt"
+    "main.css": "/jyking99/web-app-projects/static/css/main.ed238e33.chunk.css",
+    "main.js": "/jyking99/web-app-projects/static/js/main.bb6009d4.chunk.js",
+    "main.js.map": "/jyking99/web-app-projects/static/js/main.bb6009d4.chunk.js.map",
+    "runtime-main.js": "/jyking99/web-app-projects/static/js/runtime-main.8ef7669b.js",
+    "runtime-main.js.map": "/jyking99/web-app-projects/static/js/runtime-main.8ef7669b.js.map",
+    "static/js/2.aaddea28.chunk.js": "/jyking99/web-app-projects/static/js/2.aaddea28.chunk.js",
+    "static/js/2.aaddea28.chunk.js.map": "/jyking99/web-app-projects/static/js/2.aaddea28.chunk.js.map",
+    "static/js/3.f05b0e46.chunk.js": "/jyking99/web-app-projects/static/js/3.f05b0e46.chunk.js",
+    "static/js/3.f05b0e46.chunk.js.map": "/jyking99/web-app-projects/static/js/3.f05b0e46.chunk.js.map",
+    "index.html": "/jyking99/web-app-projects/index.html",
+    "static/css/main.ed238e33.chunk.css.map": "/jyking99/web-app-projects/static/css/main.ed238e33.chunk.css.map",
+    "static/js/2.aaddea28.chunk.js.LICENSE.txt": "/jyking99/web-app-projects/static/js/2.aaddea28.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.b01edd2f.js",
+    "static/js/runtime-main.8ef7669b.js",
     "static/js/2.aaddea28.chunk.js",
     "static/css/main.ed238e33.chunk.css",
-    "static/js/main.91d81c2c.chunk.js"
+    "static/js/main.bb6009d4.chunk.js"
   ]
 }
