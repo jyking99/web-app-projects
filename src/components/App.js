@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 import Header from './Header';
 import Navbar from './Navbar';
@@ -9,46 +9,98 @@ import Activity from './Activity';
 import NewPost from './NewPost';
 import Profile from './Profile';
 
+import initialStore from 'utils/initialStore';
+
 import css from "./App.module.css";
+import uniqueId from "utils/uniqueId";
 
+function App(props) {
+  const [page, setPage] = useState('home');
+  const [store, setStore] = useState(initialStore);
 
-class App extends React.Component {
-  constructor(props) {
-    super(props);
+  function addLike(postId) {
+    const like = {
+      userId: store.currentUserId,
+      postId,
+      datetime: new Date().toISOString()
+    };
 
-    this.state = {
-      page: "home"
+    setStore({
+      ...store,
+      likes: store.likes.concat(like)
+    });
+  }
+
+  function removeLike(postId) {
+    setStore({
+      ...store,
+      likes: store.likes.filter(like => !(like.userId === store.currentUserId && like.postId === postId))
+    });
+  }
+
+  function addComment(postId, text) {
+    const comment = {
+      userId: store.currentUserId,
+      postId,
+      text,
+      datetime: new Date().toISOString()
+    };
+    setStore({
+      ...store,
+      comments: store.comments.concat(comment)
+    });
+  }
+
+  function addPost(photo, desc) {
+    // TODO:
+    // 1. Create a new post object (use uniqueId('post') to create an id)
+    const post = {
+      id: uniqueId('post'),
+      userId: store.currentUserId,
+      photo,
+      desc,
+      datetime: new Date().toISOString()
     }
-
-    this.setPage = this.setPage.bind(this);
+    // 2. Update the store 
+    setStore({
+      ...store,
+      posts: store.posts.concat(post)
+    });
+    // 3. Call setPage to come back to the home page
+    setPage('home');
+  }
+  function cancelPost() {
+    // TODO:
+    // 1. Call setPage to come back to the home page (we will use Router to improve this)
+    setPage('home');
   }
 
-  setPage(page) {
-    this.setState({ page: page });
-  }
-
-  renderMain(page) {
+  // TODO: Pass "store", "addPost", "cancelPost" to <NewPost/>	
+  function renderMain(page) {
     switch (page) {
-      case "home": return <Home />;
+      case "home": return <Home
+        store={store}
+        onLike={addLike}
+        onUnlike={removeLike}
+        onComment={addComment}
+      />;
       case "explore": return <Explore />;
-      case "newpost": return <NewPost />;
+      case "newpost": return <NewPost store={store} addPost={addPost} cancelPost={cancelPost} />;
       case "activity": return <Activity />;
-      case "profile": return <Profile />;
+      case "profile": return <Profile store={store} />;
       default: return <Home />;
     }
   }
 
-  render() {
-    return (
-      <div className={css.container}>
-        <Header />
-        <main className={css.content}>
-          {this.renderMain(this.state.page)}
-        </main>
-        <Navbar onNavChange={this.setPage}/>
-      </div>
-    );
-  }
+  return (
+    <div className={css.container}>
+      <Header />
+      <main className={css.content}>
+        {renderMain(page)}
+      </main>
+      <Navbar onNavChange={setPage} />
+    </div>
+  );
 }
 
 export default App;

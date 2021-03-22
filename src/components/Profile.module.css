@@ -1,0 +1,51 @@
+.prof {
+    margin: 1em;
+}
+
+.head {
+    margin-top: 3.5em;
+    display: flex;
+}
+
+.head img {
+    width: 100px;
+    border-radius: 100px;
+}
+
+.head h2 {
+    margin: 0 1em;
+}
+
+.intro {
+    margin-top: 1em;
+}
+
+p {
+    margin: 0;
+}
+
+.attributes {
+    border-top: 2px solid lightgray;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5em 0;
+}
+
+.attributes div {
+    width: 33%;
+}
+
+.attributes p {
+    text-align: center;
+}
+
+.weak {
+    color: grey;
+}
+
+.posts{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 5px;
+}
