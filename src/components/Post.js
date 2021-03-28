@@ -20,7 +20,6 @@ function Post(props) {
     }
 
     function handleSubmitComment(event) {
-        console.log(props.post.id, comment);
         props.onComment(props.post.id, comment); // this calls addComment from App.js
         setComment(''); //reset
         setToggleComment(false); //close comment box

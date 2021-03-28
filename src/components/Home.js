@@ -1,9 +1,10 @@
 import React from 'react';
-
+import { useParams } from 'react-router-dom';
 import Post from "./Post.js";
 
 function Home(props) {
     const { store } = props;
+    let {postId} = useParams(); // the variable name has to match the parameter name
 
     function findUser(post, store) {
         return store.users.find(user => user.id === post.userId);
@@ -24,6 +25,7 @@ function Home(props) {
     return (
         <div>
             {store.posts.sort((a, b) => new Date(b.datetime) - new Date(a.datetime))
+                .filter((postId===undefined) ? post => post : post => post.id === postId)
                 .map(post =>
                     <Post
                         key={post.id}

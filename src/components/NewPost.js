@@ -1,4 +1,7 @@
 import React, { useState } from 'react';
+
+import { useHistory } from "react-router-dom";
+
 import css from './NewPost.module.css';
 import FileLoader from './FileLoader.js';
 
@@ -7,6 +10,8 @@ function NewPost(props) {
   const [desc, setDesc] = useState('');
   const [photo, setPhoto] = useState(null);
   const [error, setError] = useState(''); // to show an error message
+
+  const history = useHistory();
 
   function handleFileDragEnter(e){
     setDragging(true);
