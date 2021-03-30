@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
 import Comments from './Comments.js';
 
@@ -29,8 +30,12 @@ function Post(props) {
     return (
         <div className={css.post}>
             <div className={css.head}>
-                <img src={publicUrl(props.user.photo)} alt="icon" />
+                <Link key={props.post.userId} to={`/profile/${props.post.userId}`}>
+                    <img src={publicUrl(props.user.photo)} alt="icon" />
+                </Link>
+                <Link key={props.post.userId} to={`/profile/${props.post.userId}`}>
                 <p><strong>{props.user.id}</strong></p>
+                </Link>
             </div>
             <div className={css.content}>
                 <div className={css.imageFrame}>

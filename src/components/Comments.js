@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from "react-router-dom";
 
 import css from './Comments.module.css';
 
@@ -7,13 +8,23 @@ function Comments(props) {
     const desc = props.desc;
     const comments = props.comments;
 
-    const listItems = comments.map((comment) => 
-        <li><strong>{comment.userId}</strong> {comment.text}</li>
+    const listItems = comments.map((comment) =>
+        <li>
+            <Link key={comment.userId} to={`/profile/${comment.userId}`}>
+                <strong>{comment.userId}</strong>
+            </Link>
+            <p>{comment.text}</p>
+        </li>
     );
 
     return (
         <ul>
-            <li><strong>{userId}</strong> {props.desc}</li>
+            <li>
+                <Link key={userId} to={`/profile/${userId}`}>
+                    <strong>{userId}</strong>
+                </Link>
+                <p>{props.desc}</p>
+            </li>
             {listItems}
         </ul>
     );

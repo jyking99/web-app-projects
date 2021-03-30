@@ -34,7 +34,7 @@ function Profile(props) {
 
   function getThumbs() {
     return getPosts().map(post =>
-      <Link key={post.id} to={post.id}>
+      <Link key={post.id} to={`/${post.id}`}>
         <PostThumbnail props={post} />
       </Link>
     );
