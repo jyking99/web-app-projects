@@ -72,13 +72,6 @@ function App(props) {
       ...store,
       posts: store.posts.concat(post)
     });
-    // 3. Call setPage to come back to the home page
-    setPage('/');
-  }
-  function cancelPost() {
-    // TODO:
-    // 1. Call setPage to come back to the home page (we will use Router to improve this)
-    setPage('/');
   }
 
   function addFollower(userId, followerId){
@@ -111,7 +104,7 @@ function App(props) {
               <Explore />
             </Route>
             <Route path="/newpost">
-              <NewPost store={store} addPost={addPost} cancelPost={cancelPost} />
+              <NewPost store={store} addPost={addPost} />
             </Route>
             <Route path="/activity">
               <Activity />
@@ -127,7 +120,7 @@ function App(props) {
             </Route>
           </Switch>
         </main>
-        <Navbar onNavChange={setPage} />
+        <Navbar />
       </div>
     </Router>
   );

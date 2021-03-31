@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import css from './Navbar.module.css';
 import publicUrl from 'utils/publicUrl';
 
-function Navbar(props) {
+function Navbar() {
     // function handleNavChange(page) {
     //     if (props.onNavChange) {
     //         props.onNavChange(page);

@@ -23,7 +23,7 @@ function Comments(props) {
                 <Link key={userId} to={`/profile/${userId}`}>
                     <strong>{userId}</strong>
                 </Link>
-                <p>{props.desc}</p>
+                <p>{desc}</p>
             </li>
             {listItems}
         </ul>

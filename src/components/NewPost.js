@@ -58,11 +58,11 @@ function NewPost(props) {
     props.addPost(photo, desc);
     // 4. Clear error msg
 		setError('');
+    history.push('/');
   }
 
   function handleCancel(){
-    // TODO: Notify the parent about the cancellation
-    props.cancelPost();
+    history.push('/');
   }
   return (
     <div className={css.container}>
