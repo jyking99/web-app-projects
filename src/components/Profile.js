@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link, useParams } from "react-router-dom";
 
 import Header from './Header.js';
@@ -8,53 +8,60 @@ import publicUrl from 'utils/publicUrl.js';
 
 import css from './Profile.module.css';
 
-function Profile(props) {
-  const { store } = props;
+import {StoreContext} from "context/StoreContext.js";
+
+function Profile() {
+  let {
+    users, posts, followers, currentUserId,
+    addFollower, removeFollower
+  } = useContext(StoreContext);
+
   let { userId } = useParams();
-  const user = store.users.find((userId === undefined) ? user => user.id === store.currentUserId : user => user.id === userId);
+
+  const user = users.find((userId === undefined) ? user => user.id === currentUserId : user => user.id === userId);
 
   function getPosts() {
-    return store.posts.filter(post => post.userId === user.id);
+    return posts.filter(post => post.userId === user.id);
   }
 
   function countPosts() {
-    let posts = getPosts();
-    return posts.length;
+    let posts1 = getPosts();
+    return posts1.length;
   }
 
   function countFollowers() {
-    let followers = store.followers.filter(follower => follower.userId === user.id);
-    return followers.length;
+    let flrs = followers.filter(follower => follower.userId === user.id);
+    return flrs.length;
   }
 
   function countFollowing() {
-    let followers = store.followers.filter(follower => follower.followerId === user.id);
-    return followers.length;
+    let flrs = followers.filter(follower => follower.followerId === user.id);
+    return flrs.length;
   }
 
   function getThumbs() {
-    return getPosts().map(post =>
-      <Link key={post.id} to={`/${post.id}`}>
-        <PostThumbnail props={post} />
+    return getPosts().map(p =>
+      <Link key={p.id} to={`/${p.id}`}>
+        <PostThumbnail props={p} />
       </Link>
     );
   }
 
   function handleFollow() {
-    props.onFollow(user.id, store.currentUserId);
+    addFollower(user.id, currentUserId);
   }
 
   function handleUnfollow() {
-    props.onUnfollow(user.id, store.currentUserId);
+    removeFollower(user.id, currentUserId);
   }
 
   function renderFollowButton() {
-    if (user.id===store.currentUserId) {
+    if (user.id===currentUserId) {
       // self
       return;
     }
 
-    let following = store.followers.some(follow => follow.userId === user.id && follow.followerId === store.currentUserId)
+    let following = followers.some(follow => follow.userId === user.id && follow.followerId === currentUserId)
     let cName = following ? css.unfollowBtn : css.followBtn;
     let btnTxt = following ? "Unfollow" : "Follow";
     let listener = following ? handleUnfollow : handleFollow;

@@ -1,17 +1,21 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 
 import { useHistory } from "react-router-dom";
 
 import css from './NewPost.module.css';
 import FileLoader from './FileLoader.js';
 
-function NewPost(props) {
+import { StoreContext } from "context/StoreContext.js";
+
+function NewPost() {
   const [dragging, setDragging] = useState(false); // to show a dragging effect
   const [desc, setDesc] = useState('');
   const [photo, setPhoto] = useState(null);
   const [error, setError] = useState(''); // to show an error message
 
   const history = useHistory();
+
+  let { addPost } = useContext(StoreContext);
 
   function handleFileDragEnter(e){
     setDragging(true);
@@ -33,7 +37,6 @@ function NewPost(props) {
       if (file.type.match(/image.*/)){
 				let reader = new FileReader();			
 				reader.onloadend = (e) => {
-          // TODO: call setPhoto with e.target.result (this is a Base64 image string)
           setPhoto(e.target.result);
 				};
 				reader.readAsDataURL(file);
@@ -46,17 +49,12 @@ function NewPost(props) {
   }
 
   function handleSubmit(e){
-		// TODO:
-		// 1. Prevent default behavior
     e.preventDefault();
-		// 2. Show error msg if failed and exit
     if (photo===null) {
       setError("Upload failed.");
       return;
     }
-		// 3. Call the storage update function passed from the parent
-    props.addPost(photo, desc);
-    // 4. Clear error msg
+    addPost(photo, desc);
 		setError('');
     history.push('/');
   }
