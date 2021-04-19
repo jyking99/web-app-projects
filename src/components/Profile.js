@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { Link, useParams } from "react-router-dom";
+import { Link, useParams, Redirect } from "react-router-dom";
 
 import Header from './Header.js';
 import PostThumbnail from './PostThumbnail.js';
@@ -72,6 +72,7 @@ function Profile() {
   }
 
   return (
+    !user?<Redirect to="login"/>: 
     <div>
       <Header />
       <div className={css.upper}>

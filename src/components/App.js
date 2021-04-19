@@ -9,6 +9,8 @@ import {
 import Header from './Header';
 import Navbar from './Navbar';
 
+import Signup from './Signup';
+import Login from './Login';
 import Home from './Home';
 import Explore from './Explore';
 import Activity from './Activity';
@@ -27,6 +29,12 @@ function App() {
           <Header />
           <main className={css.content}>
             <Switch>
+              <Route path="/signup">
+                <Signup />
+              </Route>
+              <Route path="/login">
+                <Login />
+              </Route>
               <Route path="/explore">
                 <Explore />
               </Route>
